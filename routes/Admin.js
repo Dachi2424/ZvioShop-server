@@ -43,7 +43,11 @@ router.get("/verify", verifyAdmin, async (req, res) => {
 // admin logout
 router.delete("/logout", verifyAdmin, async (req, res) => {
   try{
-    res.clearCookie("adminToken")
+    res.clearCookie("adminToken", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict"
+    })
     res.json({ message: "თქვენ გამოხვედით სისტემიდან" })
   } catch(err){
     res.status(500).json({ error: err.message })
