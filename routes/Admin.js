@@ -19,7 +19,8 @@ router.post("/signin", async (req, res) => {
     res.cookie("adminToken", token, {
       httpOnly: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "strict"
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict"
     })
 
     res.json({ message: "წარმატებით შეხვედით" })
