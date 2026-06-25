@@ -58,10 +58,14 @@ router.delete("/logout", verifyAdmin, async (req, res) => {
 //add a product
 router.post("/", verifyAdmin, async (req, res) => {
   try{
-    const { name, brand, price, amperage, image, warranty, voltage } = req.body
+    let { name, brand, price, amperage, image, warranty, voltage } = req.body
 
     if(!name || !brand || price === null || price === undefined){
       return res.status(400).json({error: "დასახელება, ბრენდი და ფასი აუცილებელია"})
+    }
+
+    if(warranty === 0){
+      warranty = null
     }
 
     const newProduct = await Products.create({ 
