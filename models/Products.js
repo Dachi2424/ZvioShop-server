@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 12,
       allowNull: false,
       validate: {
-        min: {args: [0], msg: "ვოლტაჟი უნდა იყოს დადებითი რიცხვი"}
+        min: {args: [0], msg: "ძაბვა უნდა იყოს დადებითი რიცხვი"}
       }
     }
   })
