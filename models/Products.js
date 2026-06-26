@@ -19,7 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
-        notNull: {msg: "მიუთითეთ პროდუქტის ფასი"}
+        notNull: {msg: "მიუთითეთ პროდუქტის ფასი"},
+        max: {args: [99999999.99], msg: "ფასი არ უნდა აღემატებოდეს 99999999.99₾"},
+        min: {args: [0], msg: "ფასი უნდა იყოს დადებითი რიცხვი"}
       }
     },
     amperage: {
