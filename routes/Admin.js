@@ -18,7 +18,6 @@ router.post("/signin", async (req, res) => {
     const token = sign({ admin: true }, process.env.JWT_SECRET, { expiresIn: "7d"})
     res.cookie("adminToken", token, {
       httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict"
     })
