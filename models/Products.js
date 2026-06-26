@@ -27,9 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notNull: {msg: "მიუთითეთ ამპერაჟი"},
-        validate: {
-          min: {args: [0], msg: "ამპერაჟი უნდა იყოს დადებითი რიცხვი"}
-        }
+        min: {args: [0], msg: "ამპერაჟი უნდა იყოს დადებითი რიცხვი"}
       }
     },
     image: {
