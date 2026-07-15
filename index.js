@@ -8,7 +8,12 @@ app.use(cookieParser())
 
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://zvio-shop-client.vercel.app"],
+  origin: [
+    "http://localhost:5173", 
+    "https://zvio-shop-client.vercel.app",
+    "https://akumulatori-zvioshop.ge",
+    "https://www.akumulatori-zvioshop.ge"
+  ],
   credentials: true
 }))
 app.use(express.json())
